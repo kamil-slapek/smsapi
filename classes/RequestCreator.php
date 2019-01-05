@@ -32,9 +32,9 @@ class RequestCreator{
 
     $request = NULL;
     if($this->requestType == 1){
-      $request = new RequestApplication($this->pdo, $this->deviceData, $this->requestData);
-    }if($this->requestType == 2){
       $request = new RequestTransmitter($this->pdo, $this->deviceData, $this->requestData);
+    }if($this->requestType == 2){
+      $request = new RequestApplication($this->pdo, $this->deviceData, $this->requestData);
     }
 
     return $request;

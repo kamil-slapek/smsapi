@@ -65,7 +65,7 @@ class Tester{
     $sth->execute();
   }
   public function changeStatus0(){
-    $sth = $this->pdo->prepare("UPDATE sms SET status=0 WHERE 1=1");
+    $sth = $this->pdo->prepare("UPDATE sms SET status=0, device_id=0 WHERE 1=1");
     $sth->execute();
   }
   public function changeStatus1(){

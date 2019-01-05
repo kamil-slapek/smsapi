@@ -24,7 +24,7 @@ class RequestProcess {
     $this->creator = $creator;
     $this->response['return'] = ($this->creator->authorize($this->pdo, $requestRawData))?  1 : 0; //authorize() zwraca typ urządzenia 1,2.. lub 0
 
-    $this->response['debug_raw_data'] = $requestRawData;  //na potrzeby testów
+    //$this->response['debug_raw_data'] = $requestRawData;  //na potrzeby testów
   }
 
 
@@ -36,23 +36,23 @@ class RequestProcess {
 
     if($this->request->getDeviceType() == 'app'){
         //send sms to db
+        //$this->response['return'] =
+         $this->request->sendSmsToDatabase();
 
     }elseif($this->request->getDeviceType() == 'transmitter'){
-      //update interval time, assign sms to device, get sms to send, change status smsm to sended, send sms
-      //dodaj liste otrzymanych sms do response
-
       //czy są jakieś "do wysłania"?
-      if(){
+      if( sizeof($list = $this->request->getSmsToSend()) ){
         //wyślij komunikat zwrotny dla urządzenia z paczką sms
+        $this->response['sms_list'] = $list;
       }else{
         //przypisz nową paczkę smsów dla danego urządzenia
+        print_r($this->request->assignSmsToDevice());
         //wyślij komunikat zwrotny dla urządzenia z paczką sms
-        //zmień status na wysłane
-
-
+        $this->response['sms_list'] = $this->request->getSmsToSend();
       }
+      //zmień status na wysłane
+      $this->request->changeStatusSmsToSent();
     }
-
 
     return $this->response;
   }
