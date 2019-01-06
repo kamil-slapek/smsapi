@@ -75,7 +75,11 @@ if(isset($_GET['make'])){
 <a href="tester.php?make=status0">zmień status wszystkich na "do wysłania, jeszcze nie przydzielone"</a><br>
 <a href="tester.php?make=status1">zmień ststus wszystkich na "przydzielone"</a><br>
 <a href="tester.php?make=status2">zmień ststus wszystkich na "wysłane"</a><br>
-
+<br>
+<a href="simulator_app.php">symulator apki pc (na potrzeby testów)</a><br>
+<a href="simulator_transmitter.php">symulator apki android (na potrzeby testów)</a><br>
+<a href='zapytanie_telefonu_przyklad_json.php'>zapytanie_telefonu_przyklad_json</a><br>
+<a href='zapytanie_pc_przyklad_json.php'>zapytanie_pc_przyklad_json</a><br>
 <h2>Lista urządzeń</h2>
 <table>
   <tr><td>id</td> <td>token</td>  <td>device type</td> <td>interval time (s)</td> <td>last request</td></tr>

@@ -9,7 +9,7 @@ class RequestApplication extends DevicesRequest implements Request{
     print_r($this->requestData['sms_list']);
     foreach($this->requestData['sms_list'] as $arr){
     //  print_r($arr);
-      $this->addSmsToDb($arr['phone_number'], $arr['message'], 0, 0);
+      $this->addSmsToDb($arr['phone_number'], $arr['content'], 0, 0);
     }
   }
 

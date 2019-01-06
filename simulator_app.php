@@ -18,7 +18,7 @@ if( isset($_GET['id']) ){
     $number_list = explode("\n", $_GET['numbers']);
     foreach($number_list as $key=>$a){
       $data['sms_list'][$key]['phone_number'] = $number_list[$key];
-      $data['sms_list'][$key]['message'] = $_GET['message'];
+      $data['sms_list'][$key]['content'] = $_GET['content'];
     }
 
 
